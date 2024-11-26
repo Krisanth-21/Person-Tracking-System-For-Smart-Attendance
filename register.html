@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007BFF;
+      padding: 20px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #007BFF;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #009900;
+    }
+
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #f00;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      color: #000;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="file"]:focus {
+      border-color: #00f;
+      background-color: #ccffcc;
+    }
+
+    input[type="submit"] {
+      background-color: #f90;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #f60;
+    }
+
+    input[type="submit"]:focus {
+      outline: none;
+    }
+
+    /* Additional colorful styles and animations */
+    input[type="text"],
+    input[type="file"] {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="text"]:hover,
+    input[type="file"]:hover {
+      background-color: #ffcc99;
+    }
+
+    input[type="submit"] {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    input[type="submit"]:hover {
+      background-color: #ff9933;
+      transform: scale(1.05);
+    }
+
+    @keyframes rainbow-border {
+      0% {
+        border-color: #f00;
+      }
+      20% {
+        border-color: #ff0;
+      }
+      40% {
+        border-color: #0f0;
+      }
+      60% {
+        border-color: #0ff;
+      }
+      80% {
+        border-color: #00f;
+      }
+      100% {
+        border-color: #f00;
+      }
+    }
+
+    input[type="text"][required],
+    input[type="file"][required],
+    input[type="submit"] {
+      animation: rainbow-border 3s linear infinite;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="{{ url_for('index')}}">Home</a>
+      <a href="{{ url_for('start_webcam')}}">Start Attendance</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Attendance Registration</h1>
+    <form action="/register" method="post" enctype="multipart/form-data">
+      <label for="registerNumber">Register Number:</label>
+      <input type="text" id="registerNumber" name="registerNumber" required>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+
+</html>

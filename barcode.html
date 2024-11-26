@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance System</title>
+    <style>
+
+    body {
+      font-family: 'Times New Roman', serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007BFF;
+      padding: 20px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .video-container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+<header>
+    <nav>
+      <a href="{{ url_for('index')}}">Home</a>
+      <a href="{{ url_for('start_webcam')}}">Facial Recognition</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+    <h1>Smart Attendance System</h1>
+    <img id="barcode-scanner" src="{{ url_for('video_feed2') }}" width="640" height="480" autoplay>
+    <script>
+        const video = document.getElementById('barcode-scanner');
+        video.onloadstart = () => {
+            console.log('Video loading...');
+        };
+    </script>
+</body>
+</html>

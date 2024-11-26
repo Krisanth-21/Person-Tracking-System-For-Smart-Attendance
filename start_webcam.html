@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start Webcam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007BFF;
+      padding: 20px;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    .video-container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="{{ url_for('index')}}">Home</a>
+      <a href="{{ url_for('register')}}">Register</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <h3 class="mt-5">Live Streaming</h3>
+        <div class="video-container">
+          <img src="{{ url_for('video_feed') }}" alt="Webcam Stream">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

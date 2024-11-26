@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Face Recognition App</title>
+  </head>
+  <body>
+    <button id="startButton" onclick="startAttendance()">Start Attendance</button>
+    <button id="stopButton" onclick="stopAttendance()" style="display: none;">Stop Attendance</button>
+    <br />
+    <img id="videoFeed" width="640" height="480" />
+
+    <script>
+      var videoElement = document.getElementById("videoFeed");
+      var startButton = document.getElementById("startButton");
+      var stopButton = document.getElementById("stopButton");
+      var videoStream = null;
+
+      function startAttendance() {
+        startButton.style.display = "none";
+        stopButton.style.display = "block";
+
+        // Request access to the camera
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            videoStream = stream;
+            videoElement.srcObject = stream;
+          })
+          .catch(function (error) {
+            console.error("Error accessing the camera:", error);
+          });
+      }
+
+      function stopAttendance() {
+        startButton.style.display = "block";
+        stopButton.style.display = "none";
+
+        if (videoStream) {
+          videoStream.getTracks().forEach(function (track) {
+            track.stop();
+          });
+          videoElement.srcObject = null;
+        }
+      }
+    </script>
+  </body>
+</html>

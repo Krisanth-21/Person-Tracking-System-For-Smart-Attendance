@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Attendance System</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      background-color: #80cfa994;
+      margin: 0;
+      padding: 0;
+    }
+
+    header  {
+      background-color: #2e0147a8;
+      padding: 20px;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content:space-around;
+      margin-left: 150px;
+      margin-right: 150px;
+
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      text-decoration: bold;
+      font-size: 22px;
+    }
+
+    nav a:hover {
+      background-color: #d9a272;
+      color: black;
+      border-radius: 10px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* Hero section styles */
+    .hero {
+      background-color: #fcffd59e;
+      color: yellow;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 0;
+      margin-bottom: 10px;
+      color: #127a73;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin: 0;
+      margin-bottom: 30px;
+      color: #481bb1;
+    }
+
+    .cta-btn {
+      background-color: #FF4500;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 16px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #FF6347;
+      transform: scale(1.05);
+    }
+
+    /* Grid section styles */
+    .grid {
+      /* display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px; */
+      display:flex;
+      justify-content: space-around;
+      gap:30px;
+      margin-bottom: 40px;
+      
+    }
+
+    .grid-item {
+      background-color: #007BFF;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      width: 250px;
+    }
+
+    .grid-item a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .grid-item h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .grid-item p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Colorful decorations with subtle animation */
+    .grid-item:nth-child(1) {
+      background-color: #57467b; /* Light coral */
+    }
+
+    .grid-item:nth-child(2) {
+      background-color: #db162f; /* Orange */
+    }
+
+    .grid-item:nth-child(3) {
+      background-color: #db8206; /* Dodger blue */
+    }
+
+    .grid-item:nth-child(4) {
+      background-color: #d24bb3; /* Orange red */
+    }
+
+    .grid-item:nth-child(5) {
+      background-color: #00CED1;
+       /* Dark turquoise */
+    }
+
+    /* Hover effect */
+    .grid-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* About section styles */
+    .about-section {
+      background-color: #47497368;
+      padding: 50px 0;
+      text-align: center;
+      color: rgb(0, 0, 0);
+    }
+
+    .about-section h2 {
+      margin-bottom: 30px;
+    }
+
+    /* Contact section styles */
+    .contact-section {
+      background-color: #1E90FF;
+      color: #fff;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      margin-bottom: 30px;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#home" style="color: white; " >Home</a>
+      <a href="{{ url_for('register')}}" style="color: white; ">Register</a>
+      <a href="mailto:krisanthm@karunya.edu.in" style="color: white; ">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>ATTENDANCE TRACKING SYSTEM</h1>
+    <p>A modern solution for effortless attendance management</p>
+  </div>
+
+  <div class="container">
+    <h2>Features</h2>
+    <div class="grid">
+      <div class="grid-item">
+        <a href="{{ url_for('register') }}">
+          <h3>Register Person</h3>
+          <p>Easily register a new person for attendance tracking.</p>
+        </a>
+      </div>
+
+<!--      <div class="grid-item">-->
+<!--        <a href="{{ url_for('barcode') }}">-->
+<!--        <h3>Barcode Scanner-1 step verifiation</h3>-->
+<!--        <p>Click to start the attendance using Barcode Scanner using the apropraite ID card.</p>-->
+<!--        </a>-->
+<!--      </div>-->
+      <div class="grid-item">
+        <a href="{{ url_for('start_webcam') }}">
+          <h3>Facial Recognition and Barcode Scanner-2 step Verification</h3>
+          <p>Take attendance quickly and efficiently using face recognition.</p>
+        </a>
+      </div>
+
+      <div class="grid-item">
+        <a href="{{ url_for('download_attendance') }}">
+        <h3>Download Full List</h3>
+        <p>Download the complete attendance list for further processing.</p>
+        </a>
+      </div>
+      <div class="grid-item">
+        <h3>Contact Head</h3>
+        <a href="mailto:krisanthkris@gmail.com"><p>Contact the head administrator for support or queries.</p></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-section">
+    <div class="container">
+      <h2>About Facial Recognition Based Attendance System</h2>
+      <p>
+        Facial Recognition Based Attendance System is an innovative solution that utilizes face recognition technology to automate the
+        attendance management process. With its user-friendly interface and robust features, it simplifies
+        attendance tracking for educational institutions and corporate organizations.
+      </p>
+      <p>
+        Our system ensures accuracy and efficiency,
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
